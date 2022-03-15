@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+  const [fName, setFName] = useState("");
+  const [lName, SetLName] = useState("");
+
+  function handleFirst(event) {
+    setFName(event.target.value);
+  }
+  function handleLast(event) {
+    SetLName(event.target.value);
+  }
   return (
     <div className="container">
-      <h1>Hello</h1>
+      <h1>
+        Hello {fName} {lName}
+      </h1>
       <form>
-        <input name="fName" placeholder="First Name" />
-        <input name="lName" placeholder="Last Name" />
+        <input
+          onChange={handleFirst}
+          name="fName"
+          placeholder="First Name"
+          value={fName}
+        />
+        <input
+          onChange={handleLast}
+          name="lName"
+          placeholder="Last Name"
+          value={lName}
+        />
         <button>Submit</button>
       </form>
     </div>
